@@ -61,7 +61,7 @@ const projects = [
 ];
 
 const ProjectsSection = () => (
-  <section id="projects" className="w-full py-12">
+  <section id="projects" className="w-full py-12 bg-background dark:bg-zinc-950">
     <div className="container px-4 md:px-6">
       <div className="flex flex-col items-center justify-center space-y-4 text-center">
         <div className="space-y-2">
@@ -76,13 +76,13 @@ const ProjectsSection = () => (
         {projects.map((project) => (
           <MotionSection key={project.id}>
             <article
-              className="rounded-xl border-2 border-gray-100 bg-white flex flex-row items-start gap-4 p-4 sm:p-6 lg:p-8 shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="rounded-xl border-2 border-gray-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 flex flex-row items-start gap-4 p-4 sm:p-6 lg:p-8 shadow-md hover:shadow-xl transition-shadow duration-300"
             >
               <a href={project.webapp || project.github || '#'} className="block shrink-0">
                 <img
                   alt={project.title}
                   src={project.image}
-                  className="size-32 sm:size-36 md:size-40 rounded-lg object-cover border"
+                  className="size-32 sm:size-36 md:size-40 rounded-lg object-cover border border-gray-200 dark:border-zinc-800"
                   loading="lazy"
                 />
               </a>
@@ -100,12 +100,10 @@ const ProjectsSection = () => (
                   </h3>
                   <div className="flex flex-wrap gap-2 mb-2">
                     {project.tags.map((tag, idx) => (
-                      <Badge key={idx} variant="outline" className="badge-outline">
-                        {tag}
-                      </Badge>
+                      <Badge key={idx} variant="outline" className="badge-outline"/>
                     ))}
                   </div>
-                  <p className="text-sm text-gray-700 line-clamp-4 mb-2">
+                  <p className="text-sm text-gray-700 dark:text-gray-300 line-clamp-4 mb-2">
                     {project.description}
                   </p>
                   {project.date && (

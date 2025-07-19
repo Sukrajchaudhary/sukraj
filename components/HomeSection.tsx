@@ -53,7 +53,7 @@ const Typewriter = ({ texts, delay = 100, pauseDelay = 1500 }: { texts: string[]
 const HomeSection = () => (
   <section
     id="home"
-    className="w-full min-h-[calc(100vh-4rem)] flex items-center justify-center relative overflow-hidden"
+    className="w-full min-h-[calc(100vh-4rem)] flex items-center justify-center relative "
   >
     {/* Background Elements */}
     <ParticleBackground className="absolute inset-0 -z-10" />

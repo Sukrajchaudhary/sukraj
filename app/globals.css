@@ -10,6 +10,7 @@
 
 html, body {
   font-family: var(--font-work-sans), var(--font-host-grotesk), var(--font-montserrat), var(--font-outfit), var(--font-roboto), sans-serif;
+  overflow-x: hidden;
 }
 
 @tailwind base;
