@@ -1,141 +1,209 @@
 import React from "react"
-import { Badge } from "@/components/ui/badge"
 import { Github, ExternalLink } from "lucide-react"
-import Link from "next/link"
 import { MotionSection } from "@/components/animations/motion-section"
+import Image from "next/image"
 
 const projects = [
   {
-    id: 10,
+    id: 2,
     title: "JSbin Compiler",
     date: "Apr 2023 - May 2023",
-    description: "Interactive web-based compiler for HTML, CSS, and JavaScript. Features real-time code editing, live preview, and instant feedback. Supports multiple code panels for seamless workflow. Ideal for learning, prototyping, and sharing code snippets.",
+    description: "Interactive web-based compiler for HTML, CSS, and JavaScript with real-time code editing and live preview.",
     image: "https://res.cloudinary.com/dfzg6gkoh/image/upload/v1721918520/x9m4ptze2alwqinhbjch.png",
-    tags: ["React Js", "Redux"],
+    tags: ["React", "Redux"],
     category: "web app",
-    github: "", // Add if available
-    webapp: "", // Add if available
+    github: "",
+    webapp: ""
   },
   {
-    id: 9,
-    title: "Chat App",
-    date: "Jun 2023 - Jul 2023",
-    description: "A real-time chat application supporting instant messaging. Built with RESTful API, WebSocket, and Socket.io for seamless communication. Features user authentication, group chats, and message history. Designed for fast, reliable, and interactive conversations.",
-    image: "https://res.cloudinary.com/dfzg6gkoh/image/upload/v1720170659/ya7yo74xgmgp05k5nyui.png",
-    tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Redux"],
+    id: 3,
+    title: "Payitforwardjpn",
+    date: "2025",
+    description: "E-commerce platform dedicated to social good, enabling customers to make a difference with every purchase.",
+    image: "/images/payit.png",
+    tags: ["React", "API", "MongoDB"],
     category: "web app",
-    github: "https://github.com/Sukrajchaudhary/Mern-Chat-App",
-    webapp: "https://sukrajchatapp.netlify.app/",
+    webapp: "https://payitforwardjpn.com",
+    featured: true
   },
   {
-    id: 1,
-    title: "E-commerce",
-    description: "A full-stack MERN e-commerce platform for seamless product browsing and purchasing. Includes user authentication, product management, and secure checkout. Features order tracking, reviews, and admin dashboard. Optimized for performance and user experience.",
-    image: "https://res.cloudinary.com/dfzg6gkoh/image/upload/v1720171341/i91t5iihqjafsv2nco4a.png",
-    tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Redux", "NodeMailer"],
+    id: 4,
+    title: "Zolpastore",
+    date: "2025",
+    description: "Modern e-commerce platform featuring a comprehensive product catalog and seamless shopping experience.",
+    image: "/images/zolpa.png",
+    tags: ["React", "API", "MongoDB"],
     category: "web app",
-    github: "https://github.com/Sukrajchaudhary/Sastobajar",
-    webapp: "https://sastobajar.netlify.app/",
+    webapp: "https://zolpastore.com"
   },
   {
     id: 5,
-    title: "Appoinment Booking",
-    date: "Jun 2021",
-    description: "Appointment booking web app with Google login and calendar integration. Users can schedule, view, and manage appointments easily. Features automated reminders, availability management, and secure authentication. Designed for clinics, salons, and service providers.",
-    image: "https://res.cloudinary.com/dfzg6gkoh/image/upload/v1720172214/f2qwnx4hi81pijxn8o9r.png",
-    tags: ["React Js", "Local Storage", "AWS Auth", "Node JS"],
+    title: "Ultima Lifestyle",
+    date: "2024",
+    description: "Elegant e-commerce website showcasing premium lifestyle products with a refined user experience.",
+    image: "/images/ultima.png",
+    tags: ["React", "API", "MongoDB"],
     category: "web app",
-    github: "https://github.com/Sukrajchaudhary/HMS",
-    webapp: "https://sukrajhms.netlify.app/",
+    webapp: "https://ultima.com.np/"
   },
   {
-    id: 6,
-    title: "Blog App",
-    description: "A blog application built with React and Breaking Bad API. Allows users to search and display character information. Features responsive design, fast search, and engaging UI. Great for fans and learners exploring API integration.",
-    image: "https://res.cloudinary.com/dfzg6gkoh/image/upload/v1720171690/euy3bnrxz8xeyqaiy1ai.png",
-    tags: ["React Js", "API", "Node JS", "Mongo DB"],
+    id: 7,
+    title: "Appointment Booking",
+    date: "Jun 2021",
+    description: "Comprehensive booking system with Google authentication and calendar integration for efficient scheduling.",
+    image: "https://res.cloudinary.com/dfzg6gkoh/image/upload/v1720172214/f2qwnx4hi81pijxn8o9r.png",
+    tags: ["React", "AWS Auth", "Node"],
     category: "web app",
-    github: "https://github.com/Sukrajchaudhary/MernINTREN",
-    webapp: "https://sukrajblog.netlify.app/",
-  },
-];
+  }
+]
 
 const ProjectsSection = () => (
-  <section id="projects" className="w-full py-12 bg-background dark:bg-zinc-950">
-    <div className="container px-4 md:px-6">
-      <div className="flex flex-col items-center justify-center space-y-4 text-center">
-        <div className="space-y-2">
-          <h2 className="section-heading">Projects</h2>
-          <p className="max-w-[700px] text-muted-foreground">
-            Some of my notable projects and work
-          </p>
-        </div>
+  <section id="projects" className="w-full py-12 md:py-16 bg-background dark:bg-zinc-950">
+    <div className="container px-4 md:px-6 max-w-6xl mx-auto">
+      <div className="text-center mb-12">
+        <h2 className="text-2xl md:text-3xl font-bold mb-2">
+          My Projects
+        </h2>
+        <p className="text-muted-foreground">
+          A collection of my recent work and projects
+        </p>
       </div>
-      {/* Responsive two-column grid of cards */}
-      <div className="grid gap-8 pt-12 grid-cols-1 md:grid-cols-2">
+
+      {/* Two Column Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {projects.map((project) => (
-          <MotionSection key={project.id}>
-            <article
-              className="rounded-xl border-2 border-gray-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 flex flex-row items-start gap-4 p-4 sm:p-6 lg:p-8 shadow-md hover:shadow-xl transition-shadow duration-300"
-            >
-              <a href={project.webapp || project.github || '#'} className="block shrink-0">
-                <img
-                  alt={project.title}
-                  src={project.image}
-                  className="size-32 sm:size-36 md:size-40 rounded-lg object-cover border border-gray-200 dark:border-zinc-800"
-                  loading="lazy"
-                />
-              </a>
-              <div className="flex-1 flex flex-col justify-between h-full">
-                <div>
-                  <h3 className="font-medium sm:text-lg mb-1">
-                    <a
-                      href={project.webapp || project.github || '#'}
-                      className="hover:underline text-foreground"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {project.title}
-                    </a>
-                  </h3>
-                  <div className="flex flex-wrap gap-2 mb-2">
-                    {project.tags.map((tag, idx) => (
-                      <Badge key={idx} variant="outline" className="badge-outline"/>
-                    ))}
+          <MotionSection 
+            key={project.id}
+            className="group w-full h-full"
+          >
+            {/* Wrapping the card with anchor tag */}
+            {project.webapp ? (
+              <a
+                href={project.webapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full h-full cursor-pointer"
+              >
+                <div className="flex flex-col lg:flex-row h-full p-6 bg-white dark:bg-zinc-900 rounded-xl border border-gray-200 dark:border-zinc-800 hover:shadow-lg transition-all duration-300">
+                  {/* Image */}
+                  <div className="lg:w-1/3 w-full h-48 lg:h-auto overflow-hidden rounded-lg mb-4 lg:mb-0">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={600}
+                      height={300}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
                   </div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300 line-clamp-4 mb-2">
+
+                  {/* Content */}
+                  <div className="flex-1 flex flex-col ml-0 lg:ml-6">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-lg font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {project.title}
+                      </h3>
+                      <div className="flex gap-2 ml-2">
+                        {project.github && (
+                          <a 
+                            href={project.github} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="p-1.5 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <Github className="h-4 w-4" />
+                          </a>
+                        )}
+                        {project.webapp && (
+                          <a 
+                            href={project.webapp} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="p-1.5 text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mt-auto mb-2">
+                      {project.tags.map((tag, idx) => (
+                        <span 
+                          key={idx}
+                          className="text-xs px-2.5 py-1 bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {project.date && (
+                      <div className="text-xs text-gray-500 dark:text-gray-400">
+                        {project.date}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </a>
+            ) : (
+              <div className="flex flex-col lg:flex-row h-full p-6 bg-white dark:bg-zinc-900 rounded-xl border border-gray-200 dark:border-zinc-800 hover:shadow-lg transition-all duration-300">
+                <div className="lg:w-1/3 w-full h-48 lg:h-auto overflow-hidden rounded-lg mb-4 lg:mb-0">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={600}
+                    height={300}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex-1 flex flex-col ml-0 lg:ml-6">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-lg font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {project.title}
+                    </h3>
+                    <div className="flex gap-2 ml-2">
+                      {project.github && (
+                        <a 
+                          href={project.github} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="p-1.5 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                        >
+                          <Github className="h-4 w-4" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
                     {project.description}
                   </p>
+
+                  <div className="flex flex-wrap gap-2 mt-auto mb-2">
+                    {project.tags.map((tag, idx) => (
+                      <span 
+                        key={idx}
+                        className="text-xs px-2.5 py-1 bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
                   {project.date && (
-                    <div className="text-xs text-muted-foreground mt-1">{project.date}</div>
-                  )}
-                </div>
-                <div className="flex items-center gap-3 mt-3">
-                  {project.github && project.github !== "" && (
-                    <Link
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-amber-500 hover:text-amber-400"
-                    >
-                      <Github className="h-5 w-5" />
-                      <span className="sr-only">GitHub</span>
-                    </Link>
-                  )}
-                  {project.webapp && project.webapp !== "" && (
-                    <Link
-                      href={project.webapp}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-amber-500 hover:text-amber-400"
-                    >
-                      <ExternalLink className="h-5 w-5" />
-                      <span className="sr-only">Live Demo</span>
-                    </Link>
+                    <div className="text-xs text-gray-500 dark:text-gray-400">
+                      {project.date}
+                    </div>
                   )}
                 </div>
               </div>
-            </article>
+            )}
           </MotionSection>
         ))}
       </div>
@@ -143,4 +211,4 @@ const ProjectsSection = () => (
   </section>
 )
 
-export default ProjectsSection 
+export default ProjectsSection

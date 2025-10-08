@@ -3,23 +3,26 @@
 import type React from "react"
 
 import { motion } from "framer-motion"
-import { useRef } from "react"
+import { useRef, ReactNode } from "react"
 import { useInView } from "framer-motion"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { StaggeredChildren } from "@/components/animations/staggered-children"
+import { LucideIcon } from "lucide-react"
 
 interface TimelineItemProps {
   title: string
-  organization: string
+  organization: ReactNode
   date: string
-  children: React.ReactNode
+  children: ReactNode
+  icon?: LucideIcon
   badges?: string[]
   delay?: number
   link?: {
     text: string
     url: string
   }
+  isCurrent?: boolean
 }
 
 export function FlowbiteTimeline({ children }: { children: React.ReactNode }) {
@@ -34,6 +37,7 @@ export function FlowbiteTimelineItem({
   badges = [],
   delay = 0,
   link,
+  isCurrent = false,
 }: TimelineItemProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
@@ -50,7 +54,11 @@ export function FlowbiteTimelineItem({
         initial={{ scale: 0 }}
         animate={isInView ? { scale: 1 } : { scale: 0 }}
         transition={{ duration: 0.4, delay: delay + 0.2, type: "spring", stiffness: 200, damping: 10 }}
-        className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-amber-500"
+        className={`absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border-2 ${
+          isCurrent 
+            ? 'bg-primary border-primary animate-pulse' 
+            : 'bg-gray-200 border-white dark:border-gray-900 dark:bg-gray-700'
+        }`}
         style={{
           animation: "blink 2s infinite alternate",
           left: "-1.5rem",
