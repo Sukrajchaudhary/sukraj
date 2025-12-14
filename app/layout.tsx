@@ -19,30 +19,51 @@ import type { Metadata } from 'next';
 // This will be used for the browser tab title and other metadata
 export const metadata: Metadata = {
   title: "Sukraj Chaudhary | Fullstack Software Engineer | Nepal",
-  description: "Fullstack Software Engineer from Nepal specializing in modern web technologies. Check out my portfolio for projects, skills, and experience in software development.",
+  description: "Fullstack Software Engineer from Nepal specializing in MERN Stack (MongoDB, Express.js, React, Node.js) and Golang development. Experienced in building scalable web applications, REST APIs, microservices, and cloud solutions. Check out my portfolio for projects, skills, and experience.",
   keywords: [
     "Sukraj Chaudhary",
     "Fullstack Software Engineer",
     "Web Developer Nepal",
     "Fullstack Developer Nepal",
+    "MERN Stack Developer",
+    "MongoDB Developer",
+    "Express.js Developer",
+    "React Developer",
+    "React.js Developer",
+    "Node.js Developer",
+    "Next.js Developer",
+    "Golang Developer",
+    "Go Developer",
+    "Go Backend Developer",
     "JavaScript Developer",
     "TypeScript Developer",
-    "React Developer",
-    "Next.js Developer",
-    "Node.js Developer",
-    "MERN Stack Developer",
+    "REST API Developer",
+    "GraphQL Developer",
+    "Microservices Developer",
+    "Full Stack Engineer",
+    "Backend Engineer",
+    "Frontend Engineer",
+    "Software Engineer Nepal",
     "Web Development Portfolio",
     "Software Engineer Portfolio",
     "Nepali Developer",
     "Remote Software Engineer",
     "Web Application Development",
-    "Frontend Development",
-    "Backend Development"
+    "Database Developer",
+    "PostgreSQL Developer",
+    "MySQL Developer",
+    "Redis Developer",
+    "Docker Developer",
+    "Kubernetes Developer",
+    "AWS Developer",
+    "Cloud Developer",
+    "Git Developer",
+    "Agile Developer"
   ],
   authors: [{ name: 'Sukraj Chaudhary' }],
   creator: 'Sukraj Chaudhary',
   publisher: 'Sukraj Chaudhary',
-  metadataBase: new URL('https://sukrajchaudhary.com'),
+  metadataBase: new URL('https://www.sukraj231.com.np'),
   alternates: {
     canonical: '/',
   },
@@ -75,14 +96,39 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
+    locale: 'en_US',
+    url: 'https://www.sukraj231.com.np',
     siteName: 'Sukraj Chaudhary | Portfolio',
-    title: 'Sukraj Chaudhary | Portfolio',
-    description: 'Software Engineer, Fullstack Developer, Engineer. Personal portfolio website showcasing my skills, experience, and projects.',
+    title: 'Sukraj Chaudhary | Fullstack MERN & Golang Developer',
+    description: 'Fullstack Software Engineer specializing in MERN Stack (MongoDB, Express.js, React, Node.js) and Golang. Experienced in building scalable web applications, REST APIs, microservices, and cloud solutions.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Sukraj Chaudhary - Fullstack Software Engineer',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sukraj Chaudhary | Portfolio',
-    description: 'Software Engineer, Fullstack Developer, Engineer. Personal portfolio website showcasing my skills, experience, and projects.',
+    title: 'Sukraj Chaudhary | Fullstack MERN & Golang Developer',
+    description: 'Fullstack Software Engineer specializing in MERN Stack (MongoDB, Express.js, React, Node.js) and Golang. Experienced in building scalable web applications, REST APIs, microservices, and cloud solutions.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
   },
 }
 
@@ -91,8 +137,40 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Sukraj Chaudhary',
+    url: 'https://www.sukraj231.com.np',
+    jobTitle: 'Fullstack Software Engineer',
+    description: 'Fullstack Software Engineer specializing in MERN Stack (MongoDB, Express.js, React, Node.js) and Golang development.',
+    knowsAbout: [
+      'MongoDB',
+      'Express.js',
+      'React',
+      'Node.js',
+      'Golang',
+      'JavaScript',
+      'TypeScript',
+      'Web Development',
+      'Full Stack Development',
+      'REST API',
+      'Microservices',
+    ],
+    sameAs: [
+      'https://github.com/sukrajchaudhary',
+      'https://www.linkedin.com/in/sukrajchaudhary',
+    ],
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={montserrat.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange={false}>
           <Navbar />

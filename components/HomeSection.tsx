@@ -245,9 +245,8 @@ const HomeSection = () => (
               <Image
                 src="/images/profile.png"
                 alt="Sukraj Chaudhary"
-                layout="fill"
-                objectFit="cover"
-                objectPosition="center"
+                fill
+                style={{ objectFit: 'cover', objectPosition: 'center' }}
                 className="rounded-full"
                 priority
               />
